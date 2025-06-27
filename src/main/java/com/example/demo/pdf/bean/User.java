@@ -5,7 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.UUID;
 
 /**
@@ -21,13 +23,13 @@ import java.util.UUID;
 @Entity
 @Builder
 @AllArgsConstructor
+@Table(name = "user")
 public class User {
     @Id
+    @GeneratedValue
     private String id;
 
-    private String name;
-
-    private String email;
+    private String username;
 
     public User() {
         this.id = UUID.randomUUID().toString();
